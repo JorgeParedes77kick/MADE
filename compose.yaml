@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+    image: app:ar-gp-v2
+    container_name: ar-gp-v2
+    # command: php-fpm
+    command: php artisan serve # --host=147.182.233.178
+    ports:
+      - "8000:8000"
+    # restart: always
+    network_mode: "host"
+    # hostname: 147.182.233.178

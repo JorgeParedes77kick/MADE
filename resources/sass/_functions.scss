@@ -1,0 +1,79 @@
+$materialize-red: (
+  'base': #e51c23,
+  'lighten-5': #fdeaeb,
+  'lighten-4': #f8c1c3,
+  'lighten-3': #f3989b,
+  'lighten-2': #ee6e73,
+  'lighten-1': #ea454b,
+  'darken-1': #d0181e,
+  'darken-2': #b9151b,
+  'darken-3': #a21318,
+  'darken-4': #8b1014,
+);
+
+@function gen-lighten($color, $amount) {
+  @return lighten($color, $amount * 10%);
+}
+
+@function gen-darken($color, $amount) {
+  @return darken($color, $amount * 10%);
+}
+
+@function gen-accent($color, $amount) {
+  @return adjust-hue($color, $amount * 20deg);
+}
+
+@function generate-color-variants($color-base) {
+  $variants: (
+    'base': $color-base,
+    'lighten-5': gen-lighten($color-base, 5),
+    'lighten-4': gen-lighten($color-base, 4),
+    'lighten-3': gen-lighten($color-base, 3),
+    'lighten-2': gen-lighten($color-base, 2),
+    'lighten-1': gen-lighten($color-base, 1),
+    'darken-1': gen-darken($color-base, 1),
+    'darken-2': gen-darken($color-base, 2),
+    'darken-3': gen-darken($color-base, 3),
+    'darken-4': gen-darken($color-base, 4),
+    'accent-1': gen-accent($color-base, 1),
+    'accent-2': gen-accent($color-base, 2),
+    'accent-3': gen-accent($color-base, 3),
+    'accent-4': gen-accent($color-base, 4),
+  );
+  @return $variants;
+}
+
+@function generate-shade($base-color, $shade) {
+  @if $shade == 50 {
+    @return lighten(desaturate($base-color, 15%), 52%);
+  } @else if $shade == 100 {
+    @return lighten(desaturate($base-color, 15%), 37%);
+  } @else if $shade == 200 {
+    @return lighten(desaturate($base-color, 10%), 26%);
+  } @else if $shade == 300 {
+    @return lighten(desaturate($base-color, 10%), 12%);
+  } @else if $shade == 400 {
+    @return lighten($base-color, 6%);
+  } @else if $shade == 500 {
+    @return $base-color;
+  } @else if $shade == 600 {
+    @return darken($base-color, 6%);
+  } @else if $shade == 700 {
+    @return darken($base-color, 12%);
+  } @else if $shade == 800 {
+    @return darken($base-color, 18%);
+  } @else if $shade == 900 {
+    @return darken($base-color, 24%);
+  } @else if $shade == A100 {
+    @return lighten(saturate($base-color, 30%), 50%);
+  } @else if $shade == A200 {
+    @return lighten(saturate($base-color, 20%), 30%);
+  } @else if $shade == A400 {
+    @return saturate(lighten($base-color, 10%), 40%);
+  } @else if $shade == A700 {
+    @return saturate(darken($base-color, 10%), 40%);
+  } @else {
+    @error "Shade #{$shade} is not valid.";
+  }
+}
+

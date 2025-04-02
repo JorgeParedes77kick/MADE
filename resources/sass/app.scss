@@ -1,0 +1,253 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+// Variables
+
+@import '~vuetify/styles';
+@import 'fonts';
+@import 'functions';
+@import 'sizes';
+@import 'overflow';
+@import 'align';
+@import '~sweetalert2/dist/sweetalert2.min.css';
+// @import 'colors/variables-dark';
+// @import 'colors/variables-light';
+@import '~vuetify/lib/styles/settings/variables';
+@import 'text';
+
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
+  #loginPanel {
+    display: none;
+  }
+  #registerContainer {
+    width: 95% !important;
+  }
+  #forgotPassContainer {
+    width: 95% !important;
+  }
+  #resetPassContainer {
+    width: 95% !important;
+  }
+}
+
+@media #{map-get($display-breakpoints, 'xs')} {
+  .btn-login {
+    font-size: 3.3vw !important;
+  }
+  #registerContainer {
+    width: 95% !important;
+  }
+  #forgotPassContainer {
+    width: 95% !important;
+  }
+  #resetPassContainer {
+    width: 95% !important;
+  }
+}
+
+@media #{map-get($display-breakpoints, 'sm')} {
+  .btn-login {
+    font-size: 2.3vw !important;
+  }
+  #registerContainer {
+    width: 95% !important;
+  }
+  #forgotPassContainer {
+    width: 95% !important;
+  }
+  #resetPassContainer {
+    width: 95% !important;
+  }
+}
+
+@media #{map-get($display-breakpoints, 'md')} {
+  .btn-login {
+    font-size: 1.7vw !important;
+  }
+  #registerContainer {
+    width: 95% !important;
+  }
+  #forgotPassContainer {
+    width: 95% !important;
+  }
+  #resetPassContainer {
+    width: 95% !important;
+  }
+}
+
+@media #{map-get($display-breakpoints, 'lg')} {
+  .btn-login {
+    font-size: 1.3vw !important;
+  }
+  #registerContainer {
+    width: 65% !important;
+  }
+  #forgotPassContainer {
+    width: 45% !important;
+  }
+  #resetPassContainer {
+    width: 45% !important;
+  }
+}
+
+@media #{map-get($display-breakpoints, 'xl')} {
+  .btn-login {
+    font-size: 1vw !important;
+  }
+  #registerContainer {
+    width: 65% !important;
+  }
+  #forgotPassContainer {
+    width: 45% !important;
+  }
+  #resetPassContainer {
+    width: 45% !important;
+  }
+}
+
+@media #{map-get($display-breakpoints, 'xxl')} {
+  .btn-login {
+    font-size: 0.7vw !important;
+  }
+  #registerContainer {
+    width: 65% !important;
+  }
+  #forgotPassContainer {
+    width: 45% !important;
+  }
+  #resetPassContainer {
+    width: 45% !important;
+  }
+}
+
+/*
+@include media-breakpoint-between(sm, md) {
+  #loginPanel {
+    display: none;
+  }
+}
+*/
+
+.lh-0 {
+  line-height: 0 !important;
+}
+
+.v-application.v-theme--dark #body-app {
+  background-image: url('../../public/img/fondo-dark.png');
+  background-repeat: repeat;
+  //   filter: invert(100%);
+}
+.v-application.v-theme--light #body-app {
+  background-image: url('../../public/img/fondo.jpg');
+  background-repeat: repeat;
+  //   filter: invert(100%);
+}
+
+.v-text-field .v-input__details {
+  padding-inline: 0px !important;
+}
+
+#loginPanel {
+  background-image: url('../../public/img/fondo.jpg');
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100vh;
+}
+
+#registerPanel {
+  background-image: url('../../public/img/fondo.jpg');
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+}
+
+.my-v-list-group {
+  --prepend-width: 20px !important;
+  --list-indent-size: 3px !important;
+}
+
+.v-list-item__prepend {
+  align-items: center !important;
+  align-self: center !important;
+  display: block !important;
+  grid-area: prepend !important;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.hover-card {
+  transition: all 0.45s ease;
+  &:hover {
+    transform: translateY(-0.2rem) scale(1.04);
+  }
+  &:active {
+    transform: unset;
+  }
+}
+
+.v-theme--light {
+  .hover-card:hover {
+    box-shadow: 0 15px 20px rgba(60, 50, 100, 0.15);
+  }
+  // --v-shadow-key-umbra-opacity: rgba(0, 0, 0, 0.2);
+  // --v-shadow-key-penumbra-opacity: rgba(0, 0, 0, 0.14);
+  // --v-shadow-key-ambient-opacity: rgba(0, 0, 0, 0.12);
+}
+
+.v-theme--dark {
+  .hover-card:hover {
+    box-shadow: 0 15px 20px rgba(212, 217, 191, 0.15);
+  }
+  --v-shadow-key-umbra-opacity: rgba(255, 255, 255, 0.15);
+  --v-shadow-key-penumbra-opacity: rgba(255, 255, 255, 0.105);
+  --v-shadow-key-ambient-opacity: rgba(255, 255, 255, 0.9d);
+}
+
+$classTexts: 'text-h1', 'text-h2', 'text-h3', 'text-h4', 'text-h5', 'text-h6', 'text-subtitle-1',
+  'text-subtitle-2', 'text-body-1', 'text-body-2', 'text-button', 'text-caption', 'text-overline';
+
+@each $text in $classTexts {
+  .#{$text} {
+    font-family: $font-family-sans-serif;
+  }
+}
+
+// .aux {
+//   box-shadow:
+//     0px 2px 4px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)),
+//     0px 4px 5px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)),
+//     0px 1px 10px 0px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));
+// }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ffffff;
+  //   transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px #23232329;
+}
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active {
+//   -webkit-box-shadow: 0 0 0 30px white inset !important;
+// }
+
+.gridBtns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end; /* Alinea los elementos al final */
+}
+
+.gridBtns > * {
+  min-width: 150px; /* Ancho mínimo */
+  flex: 1 1 1 1 auto; /* Permite que los elementos crezcan y se encojan */
+  margin: 0.5rem; /* Espaciado entre elementos */
+}
