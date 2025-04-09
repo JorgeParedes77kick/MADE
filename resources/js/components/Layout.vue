@@ -147,10 +147,10 @@
       <div class="mr-auto ml-2 d-flex">
         <Link class="v-btn--icon v-btn--density-default my-auto" :href="route('home')">
           <img
-            src="/img/logos/logo_global_blanco.png"
+            src="/img/logos/logo.png"
             width="100"
             class="px-2"
-            style="filter: drop-shadow(3px 3px 3px rgba(153, 197, 192, 1))"
+            style="filter: drop-shadow(3px 3px 3px rgba(222, 179, 95, 1))"
             alt="arm global"
         /></Link>
         <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>

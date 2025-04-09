@@ -2,12 +2,7 @@
   import { useForm } from '@inertiajs/inertia-vue3';
   import axios from 'axios';
   import { defineProps, onBeforeMount, onMounted, ref } from 'vue';
-  import corona from '../../../../public/images/corona.png';
-  import book from '../../../../public/images/libro.png';
-  import logoGlobal from '../../../../public/images/logo_global.png';
-  import logGP from '../../../../public/images/logo_gp.png';
-  import women from '../../../../public/images/mujer.png';
-  import tween from '../../../../public/images/tweens.png';
+  import logGP from '../../../../public/images/logo_login_form.png';
   import { checkRut } from '../../constants/form';
 
   const props = defineProps({
@@ -190,12 +185,7 @@
 </script>
 
 <template>
-  <v-container
-    id="registerContainer"
-    fill-height
-    fuild
-    style="background-color: #222222; max-width: none; width: 60%; max-height: none"
-  >
+  <v-container fill-height fuild class="pa-5 bg-foreground elevation-1 rounted">
     <v-row>
       <v-fab
         color="light"
@@ -207,9 +197,9 @@
         style="left: 20px"
       ></v-fab>
       <v-col cols="12" class="text-center">
-        <v-img :src="logGP" inline cover height="auto" width="17%"></v-img>
+        <v-img :src="logGP" inline cover height="auto" width="17%" min-width="9rem"></v-img>
       </v-col>
-      <v-container fuild class="float-md-top position-absolute" style="left: 34%; top: 0">
+      <!-- <v-container fuild class="float-md-top position-absolute" style="left: 34%; top: 0">
         <v-img :src="women" inline cover height="auto" width="2%"></v-img>
       </v-container>
       <v-container fuild class="float-md-top position-absolute" style="left: 38%; top: 6%">
@@ -223,7 +213,7 @@
       </v-container>
       <v-container fuild class="float-md-top position-absolute" style="left: 63%; top: 0">
         <v-img :src="tween" inline cover height="auto" width="2%"></v-img>
-      </v-container>
+      </v-container> -->
     </v-row>
     <v-alert
       closable
@@ -240,9 +230,12 @@
           <v-col cols="3">
             <v-icon
               icon="mdi-notebook-edit-outline"
-              style="color: #99c5c0; font-size: 20px"
+              class="text-navbar-text"
+              style="font-size: 20px"
             ></v-icon
-            >&nbsp;<v-label style="color: #99c5c0; font-size: 17px">Datos Personales </v-label>
+            >&nbsp;<v-label class="text-navbar-text" style="font-size: 17px"
+              >Datos Personales
+            </v-label>
             <v-divider
               style="color: #f4ede8; padding-top: 2pt; margin-inline-start: 8%"
             ></v-divider>
@@ -251,7 +244,7 @@
         <legend>&nbsp;</legend>
         <!-- row 1 -->
         <v-row>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-text-field
               v-model="fieldsForm.nombre"
               label="Nombres"
@@ -259,14 +252,14 @@
               placeholder="Jhon"
               name="nombres"
               type="input"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required, rules.text_valid]"
               clearable
               tabindex="1"
             />
           </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-text-field
               v-model="fieldsForm.apellido"
               label="Apellidos"
@@ -274,14 +267,14 @@
               placeholder="Doe"
               name="apellidos"
               type="input"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required, rules.text_valid]"
               clearable
               tabindex="2"
             />
           </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-select
               v-model="fieldsForm.tipo_documento_id"
               name="tipo_documento"
@@ -290,14 +283,14 @@
               item-title="nombre"
               item-value="id"
               variant="outlined"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required]"
               clearable
               tabindex="3"
             ></v-select>
           </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-text-field
               v-model="fieldsForm.dni"
               label="Número de Documento"
@@ -305,7 +298,7 @@
               placeholder="1234567890"
               name="dni"
               type="input"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required, isDocValid]"
               :error-messages="fieldsForm.errors.dni"
@@ -313,9 +306,8 @@
               tabindex="4"
             />
           </v-col>
-        </v-row>
-        <!-- row 2 -->
-        <v-row>
+          <!-- </v-row>
+        <v-row> -->
           <v-col cols="12" sm="6" md="6" lg="4" xl="4">
             <v-text-field
               v-model="fieldsForm.fecha_nacimiento"
@@ -324,7 +316,7 @@
               placeholder="20/03/1999"
               name="fecha_nacimiento"
               type="date"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required]"
               clearable
@@ -348,7 +340,7 @@
               item-title="nombre"
               item-value="id"
               variant="outlined"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required]"
               clearable
@@ -364,7 +356,7 @@
               item-title="estado"
               item-value="id"
               variant="outlined"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required]"
               clearable
@@ -374,8 +366,14 @@
         </v-row>
         <v-row no-gutters>
           <v-col cols="3">
-            <v-icon icon="mdi-map-marker-radius" style="color: #99c5c0; font-size: 20px"></v-icon
-            >&nbsp;<v-label style="color: #99c5c0; font-size: 17px">Ubicaci&oacute;n </v-label>
+            <v-icon
+              icon="mdi-map-marker-radius"
+              class="text-navbar-text"
+              style="font-size: 20px"
+            ></v-icon
+            >&nbsp;<v-label class="text-navbar-text" style="font-size: 17px"
+              >Ubicaci&oacute;n
+            </v-label>
             <v-divider
               style="color: #f4ede8; padding-top: 2pt; margin-inline-start: 8%"
             ></v-divider>
@@ -384,7 +382,7 @@
         <legend>&nbsp;</legend>
         <!-- row 3 -->
         <v-row>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-select
               v-model="fieldsForm.nacionalidad_id"
               name="nacionalidad"
@@ -393,14 +391,14 @@
               item-title="nombre"
               item-value="id"
               variant="outlined"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required]"
               clearable
               tabindex="8"
             ></v-select>
           </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-select
               v-model="fieldsForm.pais_residencia"
               name="pais"
@@ -409,7 +407,7 @@
               item-title="nombre"
               item-value="id"
               variant="outlined"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required]"
               @update:modelValue="updateRegion"
@@ -417,7 +415,7 @@
               tabindex="9"
             ></v-select>
           </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-select
               v-model="fieldsForm.region_id"
               name="region_id"
@@ -426,14 +424,14 @@
               item-title="nombre"
               item-value="id"
               variant="outlined"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required]"
               clearable
               tabindex="10"
             ></v-select>
           </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-text-field
               v-model="fieldsForm.ciudad"
               label="Ciudad/Comuna"
@@ -441,7 +439,7 @@
               placeholder="Mi comuna"
               name="ciudad"
               type="input"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required, rules.counter_dir]"
               :error-messages="fieldsForm.errors.ciudad"
@@ -449,9 +447,8 @@
               tabindex="11"
             />
           </v-col>
-        </v-row>
-        <!-- row 4 -->
-        <v-row>
+          <!-- </v-row>
+        <v-row> -->
           <v-col cols="12" sm="8" md="6" lg="6" xl="6">
             <v-text-field
               v-model="fieldsForm.direccion"
@@ -460,7 +457,7 @@
               placeholder="Romano"
               name="direccion"
               type="input"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required, rules.counter_dir]"
               :error-messages="fieldsForm.errors.direccion"
@@ -468,7 +465,7 @@
               tabindex="12"
             />
           </v-col>
-          <v-col cols="12" sm="4" md="3" lg="3" xl="3">
+          <v-col cols="12" sm="4" md="3" lg="4" xl="3">
             <v-text-field
               v-model="fieldsForm.ocupacion"
               label="Ocupaci&oacute;n"
@@ -476,7 +473,7 @@
               placeholder="Jhon"
               name="ocupacion"
               type="input"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required, rules.counter_dir]"
               :error-messages="fieldsForm.errors.ocupacion"
@@ -484,7 +481,7 @@
               tabindex="13"
             />
           </v-col>
-          <v-col cols="12" sm="4" md="3" lg="3" xl="3">
+          <v-col cols="12" sm="4" md="3" lg="4" xl="3">
             <v-text-field
               v-model="fieldsForm.telefono"
               label="Tel&eacute;fono"
@@ -493,7 +490,7 @@
               :maxlength="15"
               name="telefono"
               type="input"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required, rules.phone]"
               :error-messages="fieldsForm.errors.telefono"
@@ -507,9 +504,12 @@
           <v-col cols="3">
             <v-icon
               icon="mdi-card-account-details-star-outline"
-              style="color: #99c5c0; font-size: 20px"
+              class="text-navbar-text"
+              style="font-size: 20px"
             ></v-icon
-            >&nbsp;<v-label style="color: #99c5c0; font-size: 17px">Datos de Usuario </v-label>
+            >&nbsp;<v-label class="text-navbar-text" style="font-size: 17px"
+              >Datos de Usuario
+            </v-label>
             <v-divider
               style="color: #f4ede8; padding-top: 2pt; margin-inline-start: 8%"
             ></v-divider>
@@ -518,14 +518,14 @@
         <legend>&nbsp;</legend>
         <!-- row 5 -->
         <v-row>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-text-field
               v-model="fieldsForm.email"
               label="Correo Electr&oacute;nico"
               variant="outlined"
               placeholder="johndoe@gmail.com"
               name="email"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required, rules.email]"
               :error-messages="fieldsForm.errors.email"
@@ -533,21 +533,21 @@
               tabindex="15"
             />
           </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-text-field
               v-model="fieldsForm.email_confirm"
               label="Confirme Correo Electr&oacute;nico"
               variant="outlined"
               placeholder="johndoe@gmail.com"
               name="mail"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required, rules.email, mailConfirmEqualMail]"
               clearable
               tabindex="16"
             />
           </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-text-field
               v-model="fieldsForm.password"
               label="Contrase&nacute;a"
@@ -555,7 +555,7 @@
               placeholder="******"
               name="password"
               type="password"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required, rules.counter, rules.counter_pass]"
               :error-messages="fieldsForm.errors.password"
@@ -563,7 +563,7 @@
               tabindex="17"
             />
           </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+          <v-col cols="12" sm="6" md="4" lg="4" xl="3">
             <v-text-field
               v-model="fieldsForm.password_confirm"
               label="Confirme Contrase&nacute;a"
@@ -571,7 +571,7 @@
               placeholder="******"
               name="password_confirm"
               type="password"
-              style="color: #f4ede8"
+              color="input"
               class="rounded-l"
               :rules="[rules.required, passConfirmEqualPass, rules.counter_pass]"
               clearable
@@ -585,13 +585,8 @@
               type="submit"
               large
               @click="validate"
-              style="
-                background-color: #99c5c0;
-                font-weight: bolder;
-                font-size: 14pt;
-                border-color: beige;
-                border-width: 2pt;
-              "
+              color="navbar-text"
+              style="font-weight: bolder; font-size: 14pt; border-color: beige; border-width: 2pt"
               >REGISTRARME</v-btn
             >
           </v-col>

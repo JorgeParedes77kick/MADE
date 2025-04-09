@@ -1,20 +1,19 @@
-<script setup>
-import logoGlobal from '../../../public/images/logo_global.png';
-import hello from '../../../public/images/hola.png';
-</script>
+<script setup></script>
 
 <template>
-    <v-container fuild class="py-0 px-0" style="margin-left:0px; max-width:none;">
+  <v-app id="registerPanel">
+    <div class="h-100 w-100 d-flex align-center justify-center">
+      <v-container>
         <v-fade-transition mode="out-in">
-            <v-row no-gutters>
-                <v-col cols="12" id="registerPanel">
-                  <slot></slot>
-                </v-col>
-            </v-row>
+          <v-row no-gutters>
+            <v-col cols="12">
+              <slot></slot>
+            </v-col>
+          </v-row>
         </v-fade-transition>
-    </v-container>
+      </v-container>
+    </div>
+  </v-app>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

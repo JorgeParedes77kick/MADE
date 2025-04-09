@@ -5,6 +5,7 @@
 // Variables
 
 @import '~vuetify/styles';
+
 @import 'fonts';
 @import 'functions';
 @import 'sizes';
@@ -16,108 +17,49 @@
 @import '~vuetify/lib/styles/settings/variables';
 @import 'text';
 
-@media #{map-get($display-breakpoints, 'sm-and-down')} {
-  #loginPanel {
-    display: none;
-  }
-  #registerContainer {
-    width: 95% !important;
-  }
-  #forgotPassContainer {
-    width: 95% !important;
-  }
-  #resetPassContainer {
-    width: 95% !important;
-  }
-}
+// BASE COLOR
+$BACK_COLOR: #5f7281;
+$FORE_COLOR: #222222;
+$DETAIL_COLOR: #deb35f;
 
-@media #{map-get($display-breakpoints, 'xs')} {
-  .btn-login {
-    font-size: 3.3vw !important;
-  }
-  #registerContainer {
-    width: 95% !important;
-  }
-  #forgotPassContainer {
-    width: 95% !important;
-  }
-  #resetPassContainer {
-    width: 95% !important;
-  }
-}
+// #222222
+// #deb35f
+@each $breakpoint,
+  $font-size
+    in (
+      'sm-and-down': null,
+      'xs': 3.3vw,
+      'sm': 2.3vw,
+      'md': 1.7vw,
+      'lg': 1.3vw,
+      'xl': 1vw,
+      'xxl': 0.7vw
+    )
+{
+  @media #{map-get($display-breakpoints, $breakpoint)} {
+    @if $font-size {
+      .btn-login {
+        font-size: $font-size !important;
+      }
+    }
 
-@media #{map-get($display-breakpoints, 'sm')} {
-  .btn-login {
-    font-size: 2.3vw !important;
-  }
-  #registerContainer {
-    width: 95% !important;
-  }
-  #forgotPassContainer {
-    width: 95% !important;
-  }
-  #resetPassContainer {
-    width: 95% !important;
-  }
-}
+    #registerContainer,
+    #forgotPassContainer,
+    #resetPassContainer {
+      @if $breakpoint == 'lg' {
+        width: 65% !important;
+      } @else if $breakpoint == 'xl' or $breakpoint == 'xxl' {
+        width: 45% !important;
+      } @else {
+        width: 95% !important;
+      }
+    }
 
-@media #{map-get($display-breakpoints, 'md')} {
-  .btn-login {
-    font-size: 1.7vw !important;
-  }
-  #registerContainer {
-    width: 95% !important;
-  }
-  #forgotPassContainer {
-    width: 95% !important;
-  }
-  #resetPassContainer {
-    width: 95% !important;
-  }
-}
-
-@media #{map-get($display-breakpoints, 'lg')} {
-  .btn-login {
-    font-size: 1.3vw !important;
-  }
-  #registerContainer {
-    width: 65% !important;
-  }
-  #forgotPassContainer {
-    width: 45% !important;
-  }
-  #resetPassContainer {
-    width: 45% !important;
-  }
-}
-
-@media #{map-get($display-breakpoints, 'xl')} {
-  .btn-login {
-    font-size: 1vw !important;
-  }
-  #registerContainer {
-    width: 65% !important;
-  }
-  #forgotPassContainer {
-    width: 45% !important;
-  }
-  #resetPassContainer {
-    width: 45% !important;
-  }
-}
-
-@media #{map-get($display-breakpoints, 'xxl')} {
-  .btn-login {
-    font-size: 0.7vw !important;
-  }
-  #registerContainer {
-    width: 65% !important;
-  }
-  #forgotPassContainer {
-    width: 45% !important;
-  }
-  #resetPassContainer {
-    width: 45% !important;
+    @if $breakpoint == 'sm-and-down' {
+      #loginPanel {
+        display: none;
+      }
+    }
   }
 }
 
@@ -134,14 +76,16 @@
 }
 
 .v-application.v-theme--dark #body-app {
-  background-image: url('../../public/img/fondo-dark.png');
-  background-repeat: repeat;
-  //   filter: invert(100%);
+  background-image: url('../../public/img/fondo_dark.png');
+  background-repeat: round;
+  background-size: contain;
+  background-color: #141719;
 }
 .v-application.v-theme--light #body-app {
-  background-image: url('../../public/img/fondo.jpg');
-  background-repeat: repeat;
-  //   filter: invert(100%);
+  background-image: url('../../public/img/fondo.png');
+  background-repeat: round;
+  background-size: contain;
+  background-color: $BACK_COLOR;
 }
 
 .v-text-field .v-input__details {
@@ -149,19 +93,22 @@
 }
 
 #loginPanel {
-  background-image: url('../../public/img/fondo.jpg');
+  background-image: url('../../public/img/fondo_login.png');
   background-repeat: repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   height: 100vh;
+  background-color: $BACK_COLOR;
 }
 
 #registerPanel {
-  background-image: url('../../public/img/fondo.jpg');
+  // background-image: url('../../public/img/fondo_login.png');
+  background-image: url('../../public/img/fondo_register.png');
   background-repeat: repeat;
   background-size: contain;
   background-position: center;
   height: 100%;
+  background-color: $BACK_COLOR;
 }
 
 .my-v-list-group {
@@ -203,9 +150,11 @@
   .hover-card:hover {
     box-shadow: 0 15px 20px rgba(212, 217, 191, 0.15);
   }
-  --v-shadow-key-umbra-opacity: rgba(255, 255, 255, 0.15);
-  --v-shadow-key-penumbra-opacity: rgba(255, 255, 255, 0.105);
-  --v-shadow-key-ambient-opacity: rgba(255, 255, 255, 0.9d);
+  & {
+    --v-shadow-key-umbra-opacity: rgba(255, 255, 255, 0.15);
+    --v-shadow-key-penumbra-opacity: rgba(255, 255, 255, 0.105);
+    --v-shadow-key-ambient-opacity: rgba(255, 255, 255, 0.9d);
+  }
 }
 
 $classTexts: 'text-h1', 'text-h2', 'text-h3', 'text-h4', 'text-h5', 'text-h6', 'text-subtitle-1',

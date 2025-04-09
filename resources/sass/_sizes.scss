@@ -1,33 +1,19 @@
-.min-h-25 {
-  min-height: 25% !important;
+@use 'sass:math';
+
+@use './variables' as *;
+@use './breakpoints' as *;
+
+@function callPercentage($value) {
+  @return math.percentage(math.div($value, 100));
 }
-.min-h-50 {
-  min-height: 50% !important;
-}
-.min-h-75 {
-  min-height: 75% !important;
-}
-.min-h-100 {
-  min-height: 100% !important;
-}
+$special-sizes: (25, 50, 75, 100);
+
+// Clases específicas para valores auto y fit
 .min-h-auto {
   min-height: auto !important;
 }
 .min-h-fit {
   min-height: fit-content !important;
-}
-
-.max-h-25 {
-  max-height: 25% !important;
-}
-.max-h-50 {
-  max-height: 50% !important;
-}
-.max-h-75 {
-  max-height: 75% !important;
-}
-.max-h-100 {
-  max-height: 100% !important;
 }
 .max-h-auto {
   max-height: auto !important;
@@ -35,37 +21,11 @@
 .max-h-fit {
   max-height: fit-content !important;
 }
-
-.min-w-25 {
-  min-width: 25% !important;
-}
-.min-w-50 {
-  min-width: 50% !important;
-}
-.min-w-75 {
-  min-width: 75% !important;
-}
-.min-w-100 {
-  min-width: 100% !important;
-}
 .min-w-auto {
   min-width: auto !important;
 }
 .min-w-fit {
   min-width: fit-content !important;
-}
-
-.max-w-25 {
-  max-width: 25% !important;
-}
-.max-w-50 {
-  max-width: 50% !important;
-}
-.max-w-75 {
-  max-width: 75% !important;
-}
-.max-w-100 {
-  max-width: 100% !important;
 }
 .max-w-auto {
   max-width: auto !important;
@@ -74,11 +34,34 @@
   max-width: fit-content !important;
 }
 
-@for $i from 1 through 99 {
-  .h-#{$i} {
-    height: calc(#{$i} * 1%) !important;
-  }
-  .w-#{$i} {
-    width: calc(#{$i} * 1%) !important;
+// Generación dinámica de clases responsivas
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    @for $size from 0 through 100 {
+      @if $size % 2 == 0 or $size % 5 == 0 {
+        $percentage: callPercentage($size);
+        .h#{$infix}-#{$size} {
+          height: $percentage !important;
+        }
+        .w#{$infix}-#{$size} {
+          width: $percentage !important;
+        }
+        @if index($special-sizes, $size) {
+          .max-h#{$infix}-#{$size} {
+            max-height: $percentage !important;
+          }
+          .max-w#{$infix}-#{$size} {
+            max-width: $percentage !important;
+          }
+          .min-h#{$infix}-#{$size} {
+            min-height: $percentage !important;
+          }
+          .min-w#{$infix}-#{$size} {
+            min-width: $percentage !important;
+          }
+        }
+      }
+    }
   }
 }

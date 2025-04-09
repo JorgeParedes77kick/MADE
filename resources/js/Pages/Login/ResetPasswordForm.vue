@@ -4,7 +4,7 @@
   import { defineProps, onMounted, ref } from 'vue';
   import corona from '../../../../public/images/corona.png';
   import book from '../../../../public/images/libro.png';
-  import logGP from '../../../../public/images/logo_gp.png';
+  import logGP from '../../../../public/images/logo_login_form.png';
   import women from '../../../../public/images/mujer.png';
   import tween from '../../../../public/images/tweens.png';
 

@@ -9,29 +9,28 @@ import '@mdi/font/css/materialdesignicons.css';
 const defaultFontFamily =
   "'Objetive', 'Gilroy', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'";
 
-// #5f7281
+// #f4ede8
 // #222222
-// #deb35f
-//#ddbe82
-// #f7f7f7
+// #99c5c0
+// #4E393A
 
 const light = {
   dark: false,
   colors: {
     'navbar-color': '#222224',
-    'navbar-text': '#deb35f',
-    'navbar-active': '#5f7281',
-    'navbar-active-text': '#5f7281',
-    'navbar-hover': '#deb35f',
-    'navbar-hover-text': '#5f7281',
+    'navbar-text': '#99c5c0',
+    'navbar-active': '#f4ede8',
+    'navbar-active-text': '#f4ede8',
+    'navbar-hover': '#99c5c0',
+    'navbar-hover-text': '#f4ede8',
     'data-table-header': '#222222',
     'data-table-body': '#414141',
 
-    background: '#f7f7f7',
+    background: '#fefefe',
     foreground: '#222222',
-    input: '#ddbe82',
-    primary: '#5f7281',
-    secondary: '#b0b8c0',
+    input: '#4b8c86',
+    primary: '#42a5f5',
+    secondary: '#bac3c8',
     success: '#66bb6a',
     warning: '#ffca28',
     error: '#e57373',
@@ -65,25 +64,27 @@ const dark = {
   dark: true,
   colors: {
     'navbar-color': '#0e0e0e',
-    'navbar-text': '#b38e4a',
-    'navbar-active': '#5f7281',
+    'navbar-text': '#bad7d4',
+    'navbar-active': '#f4ede8',
     'navbar-active-text': '#161617',
-    'navbar-hover': '#b38e4a',
+    'navbar-hover': '#bad7d4',
     'navbar-hover-text': '#161617',
     // 'data-table-header': '#aaaaaa',
     // 'data-table-body': '#666666',
     'data-table-header': '#212121',
     'data-table-body': '#212121',
-    background: '#181a1b',
-    foreground: '#e0e0e0',
-    input: '#4b5a66',
-    primary: '#3c4b59',
-    secondary: '#2a2f33',
-    success: '#388e3c',
-    warning: '#f57c00',
-    error: '#d32f2f',
-    info: '#0288d1',
-    light: '#2c2f33',
+    background: '#161617',
+    foreground: '#fffdf8',
+    input: '#99c5c0',
+    // input: '#4b8c86',
+
+    primary: '#1565c0',
+    secondary: '#cfd8dc',
+    success: '#2e7d32',
+    warning: '#ff8f00',
+    error: '#b71c1c',
+    info: '#00838f',
+    light: '#d1ccc7',
     surface: '#212121',
     dark: '#4a3b33',
     red: '#b71c1c',
@@ -123,53 +124,7 @@ const vuetify = createVuetify({
         wordBreak: 'auto-phrase',
       },
     },
-    // Define utilidades personalizadas
-    utilities: {
-      'fill-height': {
-        property: 'height',
-        class: 'fill',
-        values: {
-          height: '100%',
-        },
-      },
-      height: {
-        property: 'height',
-        responsive: true,
-        class: 'h',
-        values: {
-          auto: 'auto',
-          screen: '100vh',
-          0: '0',
-          25: '25%',
-          50: '50%',
-          75: '75%',
-          100: '100%',
-        },
-      },
-      'height-screen': {
-        property: 'height',
-        class: 'h',
-        values: {
-          screen: '100dvh',
-        },
-      },
-      width: {
-        property: 'width',
-        responsive: true,
-        class: 'w',
-        values: {
-          auto: 'auto',
-          0: '0',
-          25: '25%',
-          33: '33%',
-          45: '45%',
-          50: '50%',
-          66: '66%',
-          75: '75%',
-          100: '100%',
-        },
-      },
-    },
+    // Agrega más componentes si es necesario
   },
   components,
   directives,
