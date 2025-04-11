@@ -1,3 +1,10 @@
 .white-space-normal {
   white-space: normal !important;
 }
+$font-size-increment: 0.2rem;
+
+@for $i from 1 through 10 {
+  .font-size-#{$i} {
+    font-size: $i * $font-size-increment !important;
+  }
+}

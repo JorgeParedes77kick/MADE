@@ -2,19 +2,21 @@
   import { useForm } from '@inertiajs/inertia-vue3';
   import axios from 'axios';
   import { ref } from 'vue';
+
+  import InputField from '../../components/InputField.vue';
+
   import logoLoginForm from '../../../../public/images/logo_login_form.png';
 
   const loadingPage = ref(false);
-
   const validLoginForm = ref(true);
-
   const message = ref('');
-
-  const setOverlay = (v) => (loadingPage.value = v);
-
-  const setMessage = (v) => (message.value = v);
-
   const formLogin = ref(null);
+
+  const setOverlay = (v) => {
+    console.log(' v:', v);
+    loadingPage.value = v;
+  };
+  const setMessage = (v) => (message.value = v);
   const fieldsForm = useForm({
     email: '',
     password: '',
@@ -73,19 +75,19 @@
   <v-container fluid class="py-0 px-0 fill-height w-100" color="#222222" style="height: 100vh">
     <v-card
       elevation="12"
-      class="d-flex align-center justify-center w-100"
+      class="d-flex align-center justify-center w-100 rounded-0"
       color="#222222"
       style="height: 100vh"
     >
       <v-row>
-        <v-col cols="12" class="d-flex justify-center">
+        <v-col cols="12" class="d-flex justify-center mb-5">
           <v-img
             :src="logoLoginForm"
             inline
             cover
             height="auto"
             width="25%"
-            min-width="9rem"
+            min-width="10rem"
           ></v-img>
         </v-col>
         <v-col class="d-flex justify-center">
@@ -98,66 +100,64 @@
           >
             <v-row>
               <v-col cols="12">
-                <v-text-field
+                <InputField
+                  id="email"
                   v-model="fieldsForm.email"
-                  label="Correo Electr&oacute;nico"
-                  variant="outlined"
+                  label="Correo Electr&oacute;nico:"
                   placeholder="johndoe@gmail.com"
-                  name="mail"
-                  color="input"
-                  class="rounded-l"
+                  name="email"
+                  classInput="border-field color-field"
+                  classLabel="text-field font-size-6 mb-2"
                   :rules="[rules.required, rules.email]"
                   :error-messages="fieldsForm.errors.email"
                   clearable
-                  tabindex="1"
+                  variant="solo"
                 />
               </v-col>
               <v-col cols="12">
-                <v-text-field
+                <InputField
+                  id="password"
                   v-model="fieldsForm.password"
-                  label="Contrase&nacute;a"
-                  variant="outlined"
+                  label="Contraseña:"
                   placeholder="******"
                   name="password"
                   type="password"
-                  color="input"
-                  class="rounded-l"
+                  classInput="border-field color-field"
+                  classLabel="text-field font-size-6 mb-2"
                   :rules="[rules.required, rules.counter]"
                   :error-messages="fieldsForm.errors.password"
                   clearable
-                  tabindex="2"
-                  hint=""
+                  variant="solo"
                 />
               </v-col>
+
               <v-col cols="12" class="d-flex justify-center">
                 <v-btn
                   type="submit"
-                  class="btn-login"
-                  block
+                  class="rounded-lg py-4 font-weight-black w-100 h-auto text-foreground text-h5"
+                  size="large"
                   @click="validate"
                   color="navbar-text"
-                  style="font-weight: bolder; border-color: beige; border-width: 2pt"
+                  style="border-color: beige; border-width: 2pt"
+                  :loading="loadingPage"
                 >
-                  INICIAR SESI&Oacute;N</v-btn
+                  INICIAR SESIÓN</v-btn
                 >
               </v-col>
-              <v-col cols="12" class="d-flex justify-center">
-                <p style="color: beige; font-size: 10pt">
-                  A&uacute;n no tienes usuario?
+              <v-col cols="12" class="d-flex justify-center text-h5 text-center">
+                <p style="color: beige">
+                  Sí aún no tines usuario
                   <a
                     href="register"
-                    class="text-navbar-text"
-                    style="text-decoration: none; font-weight: bold; font-size: 10pt"
-                    >Registrate aqu&iacute;</a
+                    class="text-navbar-text font-weight-bold"
+                    style="text-decoration: none"
+                    >regístrate aquí</a
                   >
                 </p>
               </v-col>
-              <v-col cols="12" class="d-flex justify-center">
+              <v-col cols="12" class="d-flex justify-center text-h6">
                 <p>
-                  <a
-                    href="forgot-password"
-                    class="text-navbar-text"
-                    style="text-decoration: none; font-weight: normal; font-size: 12pt"
+                  <a href="forgot-password" class="text-navbar-text text-decoration-none"
                     >&iquest;Olvidaste tu contrase&ntilde;a&quest;</a
                   >
                 </p>

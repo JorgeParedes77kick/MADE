@@ -12,8 +12,10 @@ const defaultFontFamily =
 // #5f7281
 // #222222
 // #deb35f
-//#ddbe82
+// #ddbe82
+// #8c8885
 // #f7f7f7
+// #241c1f
 
 const light = {
   dark: false,
@@ -29,7 +31,7 @@ const light = {
 
     background: '#f7f7f7',
     foreground: '#222222',
-    input: '#ddbe82',
+    input: '#8c8885',
     primary: '#5f7281',
     secondary: '#b0b8c0',
     success: '#66bb6a',
@@ -76,7 +78,7 @@ const dark = {
     'data-table-body': '#212121',
     background: '#181a1b',
     foreground: '#e0e0e0',
-    input: '#4b5a66',
+    // input: '#4b5a66',
     primary: '#3c4b59',
     secondary: '#2a2f33',
     success: '#388e3c',
@@ -123,53 +125,12 @@ const vuetify = createVuetify({
         wordBreak: 'auto-phrase',
       },
     },
+    // VLabel: {
+    //   style: {
+    //     fontSize: '1.2rem',
+    //   },
+    // },
     // Define utilidades personalizadas
-    utilities: {
-      'fill-height': {
-        property: 'height',
-        class: 'fill',
-        values: {
-          height: '100%',
-        },
-      },
-      height: {
-        property: 'height',
-        responsive: true,
-        class: 'h',
-        values: {
-          auto: 'auto',
-          screen: '100vh',
-          0: '0',
-          25: '25%',
-          50: '50%',
-          75: '75%',
-          100: '100%',
-        },
-      },
-      'height-screen': {
-        property: 'height',
-        class: 'h',
-        values: {
-          screen: '100dvh',
-        },
-      },
-      width: {
-        property: 'width',
-        responsive: true,
-        class: 'w',
-        values: {
-          auto: 'auto',
-          0: '0',
-          25: '25%',
-          33: '33%',
-          45: '45%',
-          50: '50%',
-          66: '66%',
-          75: '75%',
-          100: '100%',
-        },
-      },
-    },
   },
   components,
   directives,

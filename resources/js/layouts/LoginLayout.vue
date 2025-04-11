@@ -9,13 +9,13 @@
       <v-row no-gutters justify="space-between">
         <v-col cols="12" md="5" lg="5" xl="5" id="loginPanel">
           <v-container class="float-md-top position-absolute" style="left: 6%; top: 4%; width: 30%">
-            <v-img :src="logo" inline cover height="auto" width="30%"></v-img>
+            <v-img :src="logo" inline cover height="auto" width="40%"></v-img>
           </v-container>
           <v-container
             class="float-md-end position-absolute"
             style="left: 6%; bottom: 10%; width: 30%"
           >
-            <v-img :src="frase" inline cover height="auto" width="80%"></v-img>
+            <v-img :src="frase" inline cover height="auto" width="90%"></v-img>
           </v-container>
         </v-col>
         <v-col cols="12" md="7" lg="7" xl="7" id="loginPanelForm">

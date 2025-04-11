@@ -200,3 +200,14 @@ input:-webkit-autofill:active {
   flex: 1 1 1 1 auto; /* Permite que los elementos crezcan y se encojan */
   margin: 0.5rem; /* Espaciado entre elementos */
 }
+
+.border-field.v-input .v-field {
+  border-radius: 12px;
+}
+.color-field.v-input .v-field {
+  background-color: #8c8885;
+  color: beige;
+}
+.text-field.v-label {
+  color: #ffffff !important;
+}
